@@ -254,7 +254,7 @@ We sincerely thank the contributors and authors of the following open-source pro
 * [TrackEval](https://github.com/JonathonLuiten/TrackEval)
 * [MOTR](https://github.com/megvii-research/MOTR)
 * [MOTRv2](https://github.com/megvii-research/MOTRv2)
-* [MeMOTR][(https://github.com/zzfang/MeMOTR](https://github.com/MCG-NJU/MeMOTR))
+* [MeMOTR](https://github.com/MCG-NJU/MeMOTR)
 * [MOTIP](https://github.com/MCG-NJU/MOTIP)
 
 Their open-source efforts have significantly accelerated research progress in the field of multi-object tracking.
