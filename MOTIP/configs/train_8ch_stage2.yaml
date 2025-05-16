@@ -1,0 +1,10 @@
+SUPER_CONFIG_PATH: train_base.yaml
+
+OUTPUTS_DIR: /train_8ch_stage2
+
+#首层10倍(相对于backbone)
+LR_DICTIONARY_NAMES: [backbone.0.body.conv1]
+LR_DICTIONARY_SCALE: 1
+
+DETR_PRETRAIN: /weights/to/stage1.pth
+

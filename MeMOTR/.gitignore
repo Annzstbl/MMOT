@@ -1,0 +1,16 @@
+.idea
+*.pth
+*.mp4
+
+
+*.pyc
+*.log
+/outputs/
+
+__pycache__/
+*.pth
+*.train
+exps/
+build/
+*.egg
+*.egg-info

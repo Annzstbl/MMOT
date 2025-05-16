@@ -1,0 +1,139 @@
+SUPER_CONFIG_PATH:
+
+MODE: train      # "train" or "eval" or "submit", for the main.py script.
+
+# System config, like CPU/GPU
+NUM_CPU_PER_GPU: 32      # number of CPU per GPU
+NUM_WORKERS: 2
+DEVICE: cuda
+AVAILABLE_GPUS: '0'
+
+# Git version:
+GIT_VERSION:              # you should input the git version here, if you are using wandb to log your experiments.
+
+# Datasets:
+DATASETS: [hsmot_8ch]    # for joint training, there may be multiple datasets, like: [CrowdHuman, MOT17]
+DATASET_SPLITS: [train]   # and corresponding splits, like: [train, val]
+DATA_ROOT: /path/to/dataset   # datasets root
+# Sampling settings:
+SAMPLE_STEPS: [0]
+SAMPLE_LENGTHS: [10] #! ID vocabulary changes from 50 to 200. So sample lengths need to 4x scale down from 40.
+SAMPLE_MODES: [random_interval]
+SAMPLE_INTERVALS: [3] # motip is 3
+# Data augmentation setting:
+AUG_RESIZE_SCALES: [608, 640, 672, 704, 736, 768, 800, 832, 864, 896, 928, 960, 992, 1024, 1056, 1088, 1120, 1152, 1184]
+AUG_MAX_SIZE: 1333
+AUG_RANDOM_RESIZE: [400, 500, 600] #unused
+AUG_RANDOM_CROP_MIN: 800
+AUG_RANDOM_CROP_MAX: 1200
+AUG_OVERFLOW_BBOX: False
+AUG_REVERSE_CLIP: 0.0
+AUG_RANDOM_SHIFT_MAX_RATIO: 0.06    # Only for static images
+
+# Model settings:
+NUM_ID_VOCABULARY: 300
+NUM_CLASSES: 8
+MAX_TEMPORAL_LENGTH: 20 
+ID_LOSS_WEIGHT: 1
+ID_LOSS_GPU_AVERAGE: True
+ID_DECODER_LAYERS: 6
+SEQ_HIDDEN_DIM: 256
+SEQ_DIM_FEEDFORWARD: 512
+SEQ_NUM_HEADS: 8
+# Backbone:
+BACKBONE: resnet50
+DILATION: False
+# About DETR-Framework
+DETR_NUM_QUERIES: 300
+DETR_NUM_FEATURE_LEVELS: 4
+DETR_AUX_LOSS: True
+DETR_WITH_BOX_REFINE: True
+DETR_TWO_STAGE: False
+DETR_MASKS: False
+DETR_HIDDEN_DIM: 256
+DETR_PE: sine
+DETR_ENC_LAYERS: 6
+DETR_DEC_LAYERS: 6
+DETR_NUM_HEADS: 8
+DETR_DIM_FEEDFORWARD: 1024
+DETR_DROPOUT: 0.0
+DETR_DEC_N_POINTS: 4
+DETR_ENC_N_POINTS: 4
+DETR_CLS_LOSS_COEF: 2.0
+DETR_BBOX_LOSS_COEF: 5.0
+DETR_GIOU_LOSS_COEF: 2.0
+DETR_FOCAL_ALPHA: 0.25
+# DETR_PRETRAIN: /data3/litianhao/hsmot/motip/r50_deformable_detr_coco.pth
+DETR_PRETRAIN: none
+DETR_FRAMEWORK: Deformable-DETR
+
+# Training Setting:
+TRAIN_STAGE: joint
+SEED: 42
+USE_DISTRIBUTED: False
+DETR_NUM_TRAIN_FRAMES: 4
+# Below two parameters are for memory optimized DETR training:
+DETR_CHECKPOINT_FRAMES: 5
+SEQ_DECODER_CHECKPOINT: True 
+# Training Augmentation:
+TRAJ_DROP_RATIO: 0.5
+TRAJ_SWITCH_RATIO: 0.3
+# Training Scheduler:
+EPOCHS: 14
+LR: 1.0e-4
+LR_BACKBONE_NAMES: [backbone.0]
+LR_BACKBONE_SCALE: 0.1
+LR_LINEAR_PROJ_NAMES: [reference_points, sampling_offsets]
+LR_LINEAR_PROJ_SCALE: 0.05
+LR_WARMUP_EPOCHS: 1
+WEIGHT_DECAY: 0.0005
+CLIP_MAX_NORM: 0.1
+SCHEDULER_TYPE: MultiStep
+SCHEDULER_MILESTONES: [8, 12]
+SCHEDULER_GAMMA: 0.1
+BATCH_SIZE: 1
+ACCUMULATE_STEPS: 2
+RESUME_MODEL:
+RESUME_OPTIMIZER: True
+RESUME_SCHEDULER: True
+RESUME_STATES: True
+
+# Inference:
+INFERENCE_MODEL: /data/users/litianhao/hsmot_code/workdir/motip/motip_hsmot_8ch/checkpoint_0.pth
+INFERENCE_ONLY_DETR: False
+INFERENCE_DATASET: hsmot_8ch
+INFERENCE_SPLIT: test
+INFERENCE_CONFIG_PATH:          # mostly, you don't need to set this parameter. See submit_engine.py L34 for more details.
+INFERENCE_GROUP:
+INFERENCE_MAX_SIZE: 1333
+INFERENCE_ENSEMBLE: 0
+# Thresholds:
+ID_THRESH: 0.2
+DET_THRESH: 0.3 #0.3
+NEWBORN_THRESH: 0.6 #0.6
+AREA_THRESH: 5
+
+# Outputs:
+OUTPUTS_DIR: /data3/litianhao/hsmot/motip/debug
+OUTPUTS_PER_STEP: 1
+SAVE_CHECKPOINT_PER_EPOCH: 1
+USE_TENSORBOARD: False
+USE_WANDB: False
+PROJECT_NAME: MOTIP
+EXP_NAME: motip_hsmot_8ch
+EXP_GROUP: default
+EXP_OWNER:
+
+# Settings which are used to reduce the memory usage of DETR criterion.
+# Too many objects (such as CrowdHuman) may cause OOM error.
+MEMORY_OPTIMIZED_DETR_CRITERION: False
+AUTO_MEMORY_OPTIMIZED_DETR_CRITERION: False # 原参数 False
+CHECKPOINT_DETR_CRITERION: False # 原参数 False
+
+
+# Rotate parameters
+ROTATE_VERSION: le135
+
+# Multispectra Parameters
+INPUT_CHANNELS: 8
+NPY2RGB: False

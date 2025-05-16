@@ -1,0 +1,7 @@
+SUPER_CONFIG_PATH: train_3ch_base.yaml
+
+OUTPUTS_DIR: /train_3ch_stage2
+
+
+DETR_PRETRAIN: /weights/to/stage1.pth
+
