@@ -115,12 +115,6 @@ class Submitter:
                 line = save_format.format(frame=i + 1, id=obj_id, x1=x1, y1=y1, x2=x2, y2=y2, x3=x3, y3=y3, x4=x4, y4=y4, conf=conf, label=label)
                 txt_lines.append(line)
 
-            save_path = os.path.join("/data3/litianhao/hsmot/paper/memotr3ch", self.seq_name)
-            os.makedirs(save_path, exist_ok=True)
-            #tracks[0].query_embed和tracks[0].ids保存下来
-            torch.save(tracks[0].query_embed.cpu(), os.path.join(save_path, f"{i}_query_embed.pt"))
-            torch.save(tracks[0].ids.cpu(), os.path.join(save_path, f"{i}_ids.pt"))
-            print(f'save {i} query_embed and ids to {save_path}')
         with open(os.path.join(self.predict_dir, f"{self.seq_name}.txt"), "w") as file:
             file.writelines(txt_lines)
             # if self.visualize:
