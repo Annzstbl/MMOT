@@ -133,7 +133,7 @@ class MOTDataset(Dataset):
         dataset_dir = os.path.join(self.data_root, dataset)
         structure = {"dataset": dataset, "split": split}
         if dataset == "mmot_8ch":
-            dataset_dir = os.path.join(self.data_root, dataset.split("_")[0])
+            dataset_dir = os.path.join(self.data_root)
             split_dir = os.path.join(dataset_dir, split)
             seq_names = os.listdir(os.path.join(split_dir, 'npy'))
             structure["seqs"] = {

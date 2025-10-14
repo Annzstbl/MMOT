@@ -1,7 +1,7 @@
 SUPER_CONFIG_PATH: train_3ch_base.yaml
 
-OUTPUTS_DIR: /train_3ch_stage2
+OUTPUTS_DIR: /data/users/litianhao/MMOT/exp/motip/train_3ch_stage2
 
 
-DETR_PRETRAIN: /weights/to/stage1.pth
+DETR_PRETRAIN: /data/users/litianhao/MMOT/exp/motip/train_3ch_stage1/checkpoint_9.pth
 

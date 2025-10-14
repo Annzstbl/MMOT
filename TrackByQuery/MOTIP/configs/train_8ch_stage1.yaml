@@ -1,6 +1,6 @@
 SUPER_CONFIG_PATH: train_base.yaml
 
-OUTPUTS_DIR: /train_8ch_stage1
+OUTPUTS_DIR: /data/users/litianhao/MMOT/exp/motip/train_8ch_stage1
 
 SAMPLE_LENGTHS: [1]       # Only sampling one frame for detection
 
@@ -20,7 +20,7 @@ ACCUMULATE_STEPS: 1
 LR_DICTIONARY_NAMES: [backbone.0.body.conv1]
 LR_DICTIONARY_SCALE: 1
 
-DETR_PRETRAIN: /weights/to/r50_deformable_detr_plus_iterative_bbox_refinement-checkpoint_convhsi.pth
+DETR_PRETRAIN: /data/users/litianhao/MMOT/weights/r50_deformable_detr_plus_iterative_bbox_refinement-checkpoint_8ch3d.pth
 
 NUM_WORKERS: 2
 

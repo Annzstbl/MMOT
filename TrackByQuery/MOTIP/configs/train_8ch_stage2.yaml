@@ -1,6 +1,6 @@
 SUPER_CONFIG_PATH: train_base.yaml
 
-OUTPUTS_DIR: /train_8ch_stage2
+OUTPUTS_DIR: /data/users/litianhao/MMOT/exp/motip/train_8ch_stage2
 
 #首层10倍(相对于backbone)
 LR_DICTIONARY_NAMES: [backbone.0.body.conv1]

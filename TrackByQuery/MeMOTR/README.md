@@ -23,7 +23,7 @@ Each file **inherits** from `default.yaml` and overrides specific parameters
 
 ## Training
 
-Training is launched via distributed command line execution.
+Training is launched via distributed command line execution. You need to change the `DATA_ROOT` in default.yaml, the `OUTPUTS_DIR` and `PRETRAINED_MODEL` in training yaml.
 Example commands:
 
 ```bash
@@ -40,7 +40,7 @@ python -m torch.distributed.run \
 
 ##  Inference
 
-After training, run inference using the corresponding predict configuration:
+After training, run inference using the corresponding predict configuration. You need to change the `OUTPUTS_DIR` and `SUBMIT_DIR` in predicting yaml.
 
 ```bash
 python main.py --config-path ./configs_mmot/predict_8ch_3d.yaml

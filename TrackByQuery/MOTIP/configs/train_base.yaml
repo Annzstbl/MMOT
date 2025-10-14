@@ -14,7 +14,7 @@ GIT_VERSION:              # you should input the git version here, if you are us
 # Datasets:
 DATASETS: [mmot_8ch]    # for joint training, there may be multiple datasets, like: [CrowdHuman, MOT17]
 DATASET_SPLITS: [train]   # and corresponding splits, like: [train, val]
-DATA_ROOT: /path/to/dataset   # datasets root
+DATA_ROOT: /data/users/litianhao/MMOT/data   # datasets root
 # Sampling settings:
 SAMPLE_STEPS: [0]
 SAMPLE_LENGTHS: [10] #! ID vocabulary changes from 50 to 200. So sample lengths need to 4x scale down from 40.
@@ -127,8 +127,8 @@ EXP_OWNER:
 # Settings which are used to reduce the memory usage of DETR criterion.
 # Too many objects (such as CrowdHuman) may cause OOM error.
 MEMORY_OPTIMIZED_DETR_CRITERION: False
-AUTO_MEMORY_OPTIMIZED_DETR_CRITERION: False # 原参数 False
-CHECKPOINT_DETR_CRITERION: False # 原参数 False
+AUTO_MEMORY_OPTIMIZED_DETR_CRITERION: False 
+CHECKPOINT_DETR_CRITERION: False 
 
 
 # Rotate parameters

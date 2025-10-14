@@ -194,9 +194,9 @@ if __name__ == '__main__':
     cfg = yaml_to_dict(opt.config_path)     # configs from .yaml file, path is set by runtime options.
 
     if opt.super_config_path is not None:
-        cfg = load_super_config(cfg, opt.super_config_path)
+        cfg = load_super_config(cfg, opt.super_config_path, opt.config_path)
     else:
-        cfg = load_super_config(cfg, cfg["SUPER_CONFIG_PATH"])
+        cfg = load_super_config(cfg, cfg["SUPER_CONFIG_PATH"], opt.config_path)
 
     # Then, update configs by runtime options, using the different runtime setting.
     main(config=update_config(config=cfg, option=opt))

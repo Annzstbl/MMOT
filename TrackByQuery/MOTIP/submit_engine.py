@@ -274,7 +274,7 @@ def get_seq_names(data_root: str, dataset: str, data_split: str):
         dataset_dir = os.path.join(data_root, dataset, data_split)
         return sorted(os.listdir(dataset_dir))
     elif dataset in ['mmot_8ch']:
-        dataset_dir = os.path.join(data_root, 'mmot', data_split, 'npy')
+        dataset_dir = os.path.join(data_root, data_split, 'npy')
         return sorted(os.listdir(dataset_dir))
     else:
         raise NotImplementedError(f"Do not support dataset '{dataset}' for eval dataset.")

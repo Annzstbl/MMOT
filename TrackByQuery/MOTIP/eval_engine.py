@@ -81,7 +81,7 @@ def evaluate_one_epoch(config: dict, model: nn.Module,
         for seq in seq_names:
             submit_one_seq(
                 model=model, dataset=dataset,
-                seq_dir=os.path.join(config["DATA_ROOT"], dataset, data_split, 'npy', seq),
+                seq_dir=os.path.join(config["DATA_ROOT"], data_split, 'npy', seq),
                 only_detr=only_detr, max_temporal_length=config["MAX_TEMPORAL_LENGTH"],
                 outputs_dir=outputs_dir,
                 det_thresh=config["DET_THRESH"],
@@ -94,7 +94,7 @@ def evaluate_one_epoch(config: dict, model: nn.Module,
     else:
         submit_one_seq(
             model=model, dataset=dataset,
-            seq_dir=os.path.join(config["DATA_ROOT"], dataset, data_split, all_seq_names[0]),
+            seq_dir=os.path.join(config["DATA_ROOT"], data_split, all_seq_names[0]),
             only_detr=only_detr, max_temporal_length=config["MAX_TEMPORAL_LENGTH"],
             outputs_dir=outputs_dir,
             det_thresh=config["DET_THRESH"],
@@ -111,7 +111,7 @@ def evaluate_one_epoch(config: dict, model: nn.Module,
     trackers_subfolder = outputs_dir.split("/")[-1]
 
 
-    dataset_dir = os.path.join(config["DATA_ROOT"], dataset.replace('_8ch',''))
+    dataset_dir = os.path.join(config["DATA_ROOT"],)
     gt_dir = os.path.join(dataset_dir, data_split, 'mot')
     img_dir = os.path.join(dataset_dir, data_split, 'npy')
 
@@ -126,7 +126,7 @@ def evaluate_one_epoch(config: dict, model: nn.Module,
         else:
             current_file_dir = os.path.dirname(os.path.abspath(__file__))
             os_flag = os.system(
-                f"{sys.executable} {current_file_dir}/../TrackEval/scripts/run_mmot_8ch.py " 
+                f"{sys.executable} {current_file_dir}/../../TrackEval/scripts/run_mmot_8ch.py " 
                 f"--USE_PARALLEL False "
                 f"--METRICS HOTA CLEAR Identity " 
                 f"--GT_FOLDER {gt_dir} "

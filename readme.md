@@ -85,11 +85,11 @@ The **MMOT dataset** can be obtained from the following two sources:
   ```
   This script will reorganize all tar files and transform the Hugging Face structure into the standard MMOT format.
 
-- 📦 **Baidu Netdisk:** [https://pan.baidu.com/s/XXXXXXXX](https://pan.baidu.com/s/XXXXXXXX) (Access code: xxxx)
+<!-- - 📦 **Baidu Netdisk:** [https://pan.baidu.com/s/XXXXXXXX](https://pan.baidu.com/s/XXXXXXXX) (Access code: xxxx)
   The Baidu Netdisk version already uses the standard MMOT structure.
-  You can simply extract all .zip files directly under the dataset root directory.
+  You can simply extract all .zip files directly under the dataset root directory. -->
 
-- 📁 Standard Directory Layout
+- 📁 **Standard Directory Layout**
 
   After processing (from either source), your dataset directory should appear as follows:
   ```text
@@ -123,17 +123,7 @@ ln -s /path/to/MMOT_dataset ./data
 All pretrained weights required for reproducing our benchmark results
 can be downloaded from the following Google Drive folder:
 
-👉 Google Drive – Pretrained Models
-
-The folder contains:
-
-YOLO-based detectors (for SORT, ByteTrack, OC-SORT, BoT-SORT)
-
-Transformer-based trackers (MOTR, MOTRv2, MeMOTR, MOTIP)
-
-3-channel RGB and 8-channel multispectral (MSI) versions
-
-Model checkpoints for both 2D and 3D-Stem configurations
+👉 [Google Drive – Pretrained Models](https://drive.google.com/drive/folders/1IT0CB7Xdyo7Nbbm7d-xqEqlRe2jB3e26)
 
 After downloading, link the folder to the root of your repository for consistent path access:
 
@@ -176,20 +166,20 @@ sh make.sh
 conda create -n mmot2 python=3.11
 conda activate mmot2
 
-conda install pytorch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 pytorch-cuda=11.8 -c pytorch -c nvidia
+pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118
 conda install matplotlib pyyaml scipy tqdm tensorboard seaborn scikit-learn pandas
 pip install opencv-python einops wandb pycocotools timm
 pip install -U openmim
 mim install mmcv==2.2.0
-pip install "numpy<2.0"
 pip install -r requirements.txt
+pip install "numpy<2.0"
 
 # Install local package
 cd $ROOT_PATH/mmot
 pip install -v -e .
 
 # Compile Deformable Attention operators
-cd $ROOT_PATH/MOTIP/models/ops
+cd $ROOT_PATH/TrackByQuery/MOTIP/models/ops
 sh make.sh
 
 ```
@@ -202,6 +192,8 @@ conda activate yolo
 pip install torch==1.13.0+cu116 torchvision==0.14.0+cu116 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu116
 
 pip install tifffile
+pip install -U openmim
+mim install mmcv==2.2.0
 pip install "numpy<2.0"
 
 # Install local packages
