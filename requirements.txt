@@ -1,0 +1,12 @@
+pycocotools
+tqdm
+cython
+scipy
+motmetrics
+opencv-python
+seaborn
+lap
+tensorboard
+loguru
+filterpy
+thop

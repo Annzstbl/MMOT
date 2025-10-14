@@ -1,0 +1,9 @@
+PARENT_CONFIG: ./train_3ch.yaml
+AVAILABLE_GPUS: 0,1
+
+OUTPUTS_DIR: /data/users/litianhao/MMOT/exp/memotr/3ch
+SUBMIT_DIR: /data/users/litianhao/MMOT/exp/memotr/3ch
+SUBMIT_MODEL: checkpoint_19.pth
+PRETRAINED_MODEL: none
+
+MODE: submit

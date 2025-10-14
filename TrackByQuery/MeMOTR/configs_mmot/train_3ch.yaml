@@ -1,0 +1,11 @@
+PARENT_CONFIG: ./default.yaml
+AVAILABLE_GPUS: 0,1
+OUTPUTS_DIR: /data/users/litianhao/MMOT/exp/memotr/3ch
+
+# Pretrain model 
+PRETRAINED_MODEL: /path/to/dab_deformable_detr.pth
+
+# multispectral image
+INPUT_CHANNELS: 3
+NPY2RGB: True
+CONV3D: False

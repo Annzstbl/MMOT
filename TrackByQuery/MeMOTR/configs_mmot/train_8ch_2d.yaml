@@ -1,0 +1,11 @@
+PARENT_CONFIG: ./default.yaml
+AVAILABLE_GPUS: 0,1
+OUTPUTS_DIR: /data/users/litianhao/MMOT/exp/memotr/8ch2d
+
+# Pretrain model 
+PRETRAINED_MODEL: /data/users/litianhao/MMOT/weights/dab_deformable_detr_8ch2d.pth
+
+# multispectral image
+INPUT_CHANNELS: 8
+NPY2RGB: False
+CONV3D: False

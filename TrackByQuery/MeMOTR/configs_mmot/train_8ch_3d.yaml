@@ -1,0 +1,14 @@
+PARENT_CONFIG: ./default.yaml
+AVAILABLE_GPUS: 0,1
+OUTPUTS_DIR: /data/users/litianhao/MMOT/exp/memotr/8ch3d
+
+# Pretrain model 
+PRETRAINED_MODEL: /data/users/litianhao/MMOT/weights/dab_deformable_detr_8ch3d.pth
+
+LR_DICTIONARY_NAMES: [backbone.0.body.conv1.weight]
+LR_DICTIONARY_SCALE: 1
+
+# multispectral image
+INPUT_CHANNELS: 8
+NPY2RGB: False
+CONV3D: True

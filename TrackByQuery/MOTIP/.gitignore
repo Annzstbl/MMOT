@@ -1,0 +1,9 @@
+# Root gitignore file
+
+# PyCharm
+.idea/
+
+*.pyc
+*.egg-info/
+dist/
+build
