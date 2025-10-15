@@ -1,8 +1,9 @@
-# [MMOT: The First Challenging Benchmark for Drone-based Multispectral Multi-Object Tracking](https://neurips.cc/virtual/2025/poster/121413)
+# MMOT: The First Challenging Benchmark for Drone-based Multispectral Multi-Object Tracking
 
 **Li Tianhao**, **Xu Tingfa***, **Wang Ying**, **Qin Haolin**, **Lin Xu**, **Li Jianan***  
 *Beijing Institute of Technology*  
-Presented at **NeurIPS 2025**
+Presented at **NeurIPS 2025**  
+[[**arXiv**](https://arxiv.org/abs/2510.12565)]
 
 ---
 
@@ -85,11 +86,11 @@ The **MMOT dataset** can be obtained from the following two sources:
   ```
   This script will reorganize all tar files and transform the Hugging Face structure into the standard MMOT format.
 
-<!-- - 📦 **Baidu Netdisk:** [https://pan.baidu.com/s/XXXXXXXX](https://pan.baidu.com/s/XXXXXXXX) (Access code: xxxx)
-  The Baidu Netdisk version already uses the standard MMOT structure.
+- 📦 **Baidu Netdisk:（Comming Soon）**
+  <!-- The Baidu Netdisk version already uses the standard MMOT structure.
   You can simply extract all .zip files directly under the dataset root directory. -->
 
-- 📁 **Standard Directory Layout**
+📁 **Standard Directory Layout**
 
   After processing (from either source), your dataset directory should appear as follows:
   ```text
@@ -206,15 +207,14 @@ pip install -v -e .
 
 📘 Notes
 
-Each tracking framework (MOTR, MOTRv2, MeMOTR, MOTIP, YOLO) has its own configuration and run instructions,
-including training, inference, and evaluation pipelines.
+Each tracking framework  has its own configuration and run instructions, including training, inference, and evaluation pipelines.
 
-Please refer to the README.md inside each subdirectory for detailed usage:
+Please refer to the readme of [MOTR](./TrackByQuery/MOTR), [MOTRv2](./TrackByQuery/MOTRv2) [MeMOTR](./TrackByQuery/MeMOTR) [MOTIP](./TrackByQuery/MOTIP) [YOLO](./TrackByDetection/ultralytics) [Association Trackers(SORT,ByteTrack,OC-SORT,BoT-SORT)](./TrackByDetection/association) inside each subdirectory for detailed usage:
 
 
 ## 🧮 Evaluation Toolkit
 
-This repository integrates [**TrackEval**](./TrackEval) for consistent evaluation using **HOTA**, **MOTA**, **IDF1**, and **CLEAR MOT** metrics.
+This repository integrates [**TrackEval for MMOT**](./TrackEval) for consistent evaluation using **HOTA**, **MOTA**, **IDF1**, and **CLEAR MOT** metrics.
 
 ## ⚖️ License
 
